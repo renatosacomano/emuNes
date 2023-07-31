@@ -1,7 +1,10 @@
-.obj
-.o
-.a
-.dblite
+*.obj
+*.o
+*.a
+*.dblite
 
 /bin
+/bin/*
+
 /.vscode
+/.vscode/*
