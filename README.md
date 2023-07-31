@@ -1,2 +1,2 @@
 # emuNes
-Emulador de Nintendo Lua
+Emulador de Nintendo

@@ -2,9 +2,12 @@
 *.o
 *.a
 *.dblite
+*.lib
+*.exe
 
-/bin
+
 /bin/*
+/libs/*
 
 /.vscode
 /.vscode/*
