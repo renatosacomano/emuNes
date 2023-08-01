@@ -78,3 +78,24 @@ int cpu_process(cpu6502 *cpu,uint8_t * mem){
 
     return 0;
 }
+
+uint16_t get_addr(cpu6502 *cpu,uint8_t *mem,int8_t mode){
+    switch (mode)
+    {
+    case ADDR_MODE_IMPLICIT:    return  cpu->p;break;
+    case ADDR_MODE_ACCUMULATOR: return  cpu->p;break;
+    case ADDR_MODE_IMMEDIATE:   return  cpu->p + 1;break;
+    case ADDR_MODE_ZERO_PAGE:   return  mem[cpu->p+1];break;
+    case ADDR_MODE_ZERO_PAGE_X: return (mem[cpu->p+1]+cpu->x) % 0xff; break;
+    case ADDR_MODE_ZERO_PAGE_Y: return (mem[cpu->p+1]+cpu->y) % 0xff; break;
+    case ADDR_MODE_RELATIVE:    return (mem[cpu->p+1]+cpu->p+2); break;
+    case ADDR_MODE_ABSOLUTE:    return  mem[cpu->p+1] | (mem[cpu->p+2] << 8); break;
+    case ADDR_MODE_ABSOLUTE_X:  return (mem[cpu->p+1] | (mem[cpu->p+2]<<8)) + cpu->x; break;
+    case ADDR_MODE_ABSOLUTE_Y:  return (mem[cpu->p+1] | (mem[cpu->p+2]<<8)) + cpu->y; break;
+    case ADDR_MODE_INDIRECT: break;
+    case ADDR_MODE_INDEXED_INDIRECT: break;
+    case ADDR_MODE_INDIRECT_INDEXED: break;
+    default:
+        break;
+    }
+}
