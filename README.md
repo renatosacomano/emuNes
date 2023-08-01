@@ -1,2 +1,2 @@
 # emuNes
-Emulador de Nintendo
+Emulador de Nintendo not working yet
